@@ -126,10 +126,6 @@ dependencies {
     // If the group id is "net.minecraft" and the artifact id is one of ["client", "server", "joined"],
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-    implementation 'org.openpnp:opencv:4.7.0-0'
-    jarJar(group: "org.openpnp", name: "opencv", version: "[4.7.0,4.8.0)") {
-        jarJar.pin(it, "4.7.0-0")
-    }
 
     // Real mod deobf dependency examples - these get remapped to your current mappings
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") // Adds JEI API as a compile dependency

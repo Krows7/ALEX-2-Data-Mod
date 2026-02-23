@@ -56,7 +56,7 @@ public class DataModConfigScreen extends Screen {
 	 * @param parent previous screen to return to on close
 	 */
 	public DataModConfigScreen(Screen parent) {
-		super(new StringTextComponent("MyMod Config"));
+		super(new StringTextComponent("Data Mod Config"));
 		this.parent = parent;
 	}
 
@@ -244,7 +244,7 @@ public class DataModConfigScreen extends Screen {
 				sshErrorText = null;
 				statusText = sshEnabled ? "Connected via SSH tunnel" : "Connected";
 			});
-		}, "MyMod-Connect").start();
+		}, "DataMod-Connect").start();
 	}
 
 	private void onDisconnectClicked() {
@@ -425,7 +425,9 @@ public class DataModConfigScreen extends Screen {
 		if (addrField != null && addrField.charTyped(codePoint, modifiers)
 				|| processingThreadsField != null && processingThreadsField.charTyped(codePoint, modifiers))
 			return true;
-		if ((sshAddrField != null && sshAddrField.charTyped(codePoint, modifiers)) || (sshUserField != null && sshUserField.charTyped(codePoint, modifiers))) return true;
+		if (sshAddrField != null && sshAddrField.charTyped(codePoint, modifiers)
+				|| sshUserField != null && sshUserField.charTyped(codePoint, modifiers))
+			return true;
 		if (sshKeyField != null && sshKeyField.charTyped(codePoint, modifiers)) return true;
 		return super.charTyped(codePoint, modifiers);
 	}
@@ -433,8 +435,8 @@ public class DataModConfigScreen extends Screen {
 	/**
 	 * Handles key presses for all text fields.
 	 *
-	 * @param keyCode key code
-	 * @param scanCode scan code
+	 * @param keyCode   key code
+	 * @param scanCode  scan code
 	 * @param modifiers keyboard modifiers bit mask
 	 * @return {@code true} if event was consumed
 	 */
@@ -443,7 +445,9 @@ public class DataModConfigScreen extends Screen {
 		if (addrField != null && addrField.keyPressed(keyCode, scanCode, modifiers)
 				|| processingThreadsField != null && processingThreadsField.keyPressed(keyCode, scanCode, modifiers))
 			return true;
-		if ((sshAddrField != null && sshAddrField.keyPressed(keyCode, scanCode, modifiers)) || (sshUserField != null && sshUserField.keyPressed(keyCode, scanCode, modifiers))) return true;
+		if (sshAddrField != null && sshAddrField.keyPressed(keyCode, scanCode, modifiers)
+				|| sshUserField != null && sshUserField.keyPressed(keyCode, scanCode, modifiers))
+			return true;
 		if (sshKeyField != null && sshKeyField.keyPressed(keyCode, scanCode, modifiers)) return true;
 		return super.keyPressed(keyCode, scanCode, modifiers);
 	}
@@ -451,9 +455,9 @@ public class DataModConfigScreen extends Screen {
 	/**
 	 * Renders full screen, widgets and status lines.
 	 *
-	 * @param ms render matrix stack
-	 * @param mouseX mouse x
-	 * @param mouseY mouse y
+	 * @param ms           render matrix stack
+	 * @param mouseX       mouse x
+	 * @param mouseY       mouse y
 	 * @param partialTicks partial tick interpolation
 	 */
 	@Override
@@ -495,7 +499,7 @@ public class DataModConfigScreen extends Screen {
 	 *
 	 * @param mouseX mouse x
 	 * @param mouseY mouse y
-	 * @param delta wheel delta
+	 * @param delta  wheel delta
 	 * @return {@code true} if scroll was handled
 	 */
 	@Override

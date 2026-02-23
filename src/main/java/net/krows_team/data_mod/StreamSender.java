@@ -28,7 +28,7 @@ public class StreamSender extends Thread {
 	 * @param port server port
 	 */
 	public StreamSender(String host, int port) {
-		super("MyMod-StreamSender");
+		super("DataMod-StreamSender");
 		setDaemon(true);
 		this.host = host;
 		this.port = port;

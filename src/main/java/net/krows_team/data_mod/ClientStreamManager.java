@@ -688,7 +688,7 @@ public class ClientStreamManager {
 		long pboFallback = drainCount(dbgPboFallbackCnt);
 		long pboMapNull = drainCount(dbgPboMapNullCnt);
 		String line = String.format(
-				"[MyMod Debug] tick=%d | captureSnapshot=%.3f ms (n=%d) | captureFrame=%.3f ms (n=%d) | resize=%.3f ms (n=%d) | buildPacket=%.3f ms (n=%d) | flushReady=%.3f ms (n=%d) | workerTotal=%.3f ms (n=%d) | pboHit=%d | pboFallback=%d | pboMapNull=%d",
+				"[DataMod Debug] tick=%d | captureSnapshot=%.3f ms (n=%d) | captureFrame=%.3f ms (n=%d) | resize=%.3f ms (n=%d) | buildPacket=%.3f ms (n=%d) | flushReady=%.3f ms (n=%d) | workerTotal=%.3f ms (n=%d) | pboHit=%d | pboFallback=%d | pboMapNull=%d",
 				t, captureSnapshot.avgMs, captureSnapshot.count, captureFrame.avgMs, captureFrame.count, resize.avgMs, resize.count,
 				buildPacket.avgMs, buildPacket.count, flushReady.avgMs, flushReady.count, workerTotal.avgMs, workerTotal.count, pboHit,
 				pboFallback, pboMapNull);
