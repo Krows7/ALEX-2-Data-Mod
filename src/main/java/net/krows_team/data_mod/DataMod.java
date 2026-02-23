@@ -6,19 +6,25 @@ import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
 
-@Mod(MyMod.MODID)
-public class MyMod {
-	public static final String MODID = "examplemod";
+/**
+ * Main Forge entry point of the mod.
+ * <p>
+ * Registers client configuration, config GUI screen and client-side event handlers.
+ */
+@Mod(DataMod.MODID)
+public class DataMod {
+	/** Mod identifier used in Forge annotations and resources. */
+	public static final String MODID = "data_mod";
 
-	public MyMod() {
-		// TOML конфиг
+	/**
+	 * Creates mod bootstrap and registers client systems.
+	 */
+	public DataMod() {
 		ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, ClientConfig.SPEC);
 
-		// Кнопка "Config" в меню Mods -> откроет твой экран
 		ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.CONFIGGUIFACTORY,
-				() -> (mc, parent) -> new MyModConfigScreen(parent));
+				() -> (mc, parent) -> new DataModConfigScreen(parent));
 
-		// События/тики
 		MinecraftForge.EVENT_BUS.register(ClientStreamManager.class);
 	}
 }
